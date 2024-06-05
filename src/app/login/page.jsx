@@ -17,7 +17,7 @@ const Login = () => {
             redirect:false
         })
         
-        router.push('/dashboard')
+        // router.push('/dashboard')
     }
 
     return (
