@@ -12,21 +12,23 @@ const Login = () => {
     const handleSubmit = async (e)=>{
         e.preventDefault()
 
-        // if(!data.email || data.password){
-        //     alert('Full al fields !')
-        //     return
-        // }
+        
+        if(!data.email === "" || data.password === ""){
+            alert('Full al fields !')
+            return
+        }
 
-        // await signIn('credentials',{
-        //     ...data,
-        //     redirect:false
-        // })
+
+        await signIn('credentials',{
+            ...data,
+            redirect:false
+        })
         
         setData({email:"",password:""})
     }
 
-    // const {data:session} = useSession()
-    // if(session) router.push("/dashboard")
+    const {data:session} = useSession()
+    if(session) router.push("/dashboard")
 
     return (
         <div className='p-10'>
