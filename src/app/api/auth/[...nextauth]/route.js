@@ -2,6 +2,7 @@
 
 import NextAuth from "next-auth/next"
 import CredentialsProvider from "next-auth/providers/credentials"
+import User from "../../../../../models/user"
 
 export const authOptions = {
     providers:[
@@ -13,7 +14,18 @@ export const authOptions = {
                 email: {label:"email",type:"email"}
             },
             async authorize(credentials){
-                // 
+                // check to see if email and password is valid
+                if(!credentials.email || !credentials.password) return   
+
+                // check to see if user exist
+                const user = await User.find({email:credentials.email})
+                if(!user) return null
+
+                // check to see if password match
+
+                // return user if user object is valid
+                return user
+
             }
         })  
     ],
