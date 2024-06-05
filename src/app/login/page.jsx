@@ -1,10 +1,22 @@
 
 'use client'
 
+import { signIn } from 'next-auth/react'
+import {useRouter} from 'next/navigation'
 import React,{useState} from 'react'
 
-const page = () => {
+const Login = () => {
     const [data,setData] = useState({name:"",email:""})
+    const router = useRouter()
+
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+        signIn('credentials',{
+            ...data,
+            redirect:false
+        })
+        router.push('/dashboard')
+    }
 
     return (
         <div className='p-10'>
@@ -21,4 +33,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Login
