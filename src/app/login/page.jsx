@@ -1,7 +1,7 @@
 
 'use client'
 
-import { signIn } from 'next-auth/react'
+import { signIn,useSession } from 'next-auth/react'
 import {useRouter} from 'next/navigation'
 import React,{useState} from 'react'
 
