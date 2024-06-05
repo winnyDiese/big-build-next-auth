@@ -15,7 +15,7 @@ export const authOptions = {
             },
             async authorize(credentials){
                 // check to see if email and password is valid
-                if(!credentials.email || !credentials.password) return   
+                if(!credentials.email || !credentials.password) return  
 
                 // check to see if user exist
                 const user = await User.find({email:credentials.email})
@@ -27,7 +27,6 @@ export const authOptions = {
 
                 // return user if user object is valid
                 return user
-
             }
         })  
     ],

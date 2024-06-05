@@ -13,6 +13,7 @@ export async function GET(){
 
 export async function POST(request){
     const {names,email,password} = await request.json()
+    
     const user = await User.create({names,email,password})
 
     return NextResponse.json({message:"User added !",user},{status:201})
