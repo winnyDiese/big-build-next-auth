@@ -1,9 +1,17 @@
 
 import { NextResponse } from "next/server"
-import connectDb from "../../../../libs/mongoose"
+import {connectMongoDb} from "../../../../libs/connectDb"
 import User from "../../../../models/user"
+import mongoose from "mongoose"
 
-await connectDb()
+// try{
+//     await mongoose.connect(process.env.MONGODB_URL)
+//     console.log("Connected to mongodb")
+// }catch(error){
+//     console.log(error)
+// }
+
+await connectMongoDb()
 
 export async function GET(){
     const users = await User.find()
