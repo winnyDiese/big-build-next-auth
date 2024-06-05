@@ -1,8 +1,9 @@
 
 import { NextResponse } from "next/server"
-import {connectMongoDb} from "../../../../libs/connectDb"
+// import {connectMongoDb} from "../../libs/mongoose"
 import User from "../../../../models/user"
 import mongoose from "mongoose"
+import connectMongoDb from "@/app/libs/mongoose"
 
 // try{
 //     await mongoose.connect(process.env.MONGODB_URL)
