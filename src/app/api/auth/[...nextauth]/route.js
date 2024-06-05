@@ -8,6 +8,7 @@ export const authOptions = {
     providers:[
         CredentialsProvider({
             name: "credentails",
+            pages: {signIn:"/login"},
             credentials:{
                 username: {label:"name",type:"text",placeholder:"Pascosco"},
                 password: {label:"password",type:"password"},
