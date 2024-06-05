@@ -6,22 +6,27 @@ import {useRouter} from 'next/navigation'
 import React,{useState} from 'react'
 
 const Login = () => {
-    const [data,setData] = useState({name:"",email:""})
+    const [data,setData] = useState({password:"",email:""})
     const router = useRouter()
 
     const handleSubmit = async (e)=>{
         e.preventDefault()
 
-        await signIn('credentials',{
-            ...data,
-            redirect:false
-        })
+        // if(!data.email || data.password){
+        //     alert('Full al fields !')
+        //     return
+        // }
+
+        // await signIn('credentials',{
+        //     ...data,
+        //     redirect:false
+        // })
         
-        // router.push('/dashboard')
+        setData({email:"",password:""})
     }
 
-    const {data:session} = useSession()
-    if(session) router.push("/dashboard")
+    // const {data:session} = useSession()
+    // if(session) router.push("/dashboard")
 
     return (
         <div className='p-10'>
