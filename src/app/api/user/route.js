@@ -1,8 +1,7 @@
 
-
-import User from "../../../../models/user"
 import { NextResponse } from "next/server"
-import connectDb from "../../../../lib/mongoose"
+import connectDb from "../../../../libs/mongoose"
+import User from "../../../../models/user"
 
 await connectDb()
 
