@@ -9,16 +9,19 @@ const Login = () => {
     const [data,setData] = useState({name:"",email:""})
     const router = useRouter()
 
-    const handleSubmit = (e)=>{
+    const handleSubmit = async (e)=>{
         e.preventDefault()
 
-        signIn('credentials',{
+        await signIn('credentials',{
             ...data,
             redirect:false
         })
         
         // router.push('/dashboard')
     }
+
+    const {data:session} = useSession()
+    if(session) router.push("/dashboard")
 
     return (
         <div className='p-10'>
