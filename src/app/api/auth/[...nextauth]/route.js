@@ -33,10 +33,14 @@ export const authOptions = {
     ],
     callbacks:{
         async jwt({token,user}){
-
+            token.id = user.token
+            token.data = user
         },
         async session({session,token,user}){
-            
+            const userInfo = token?.data?.data
+            session.user = userInfo
+            session.token = userInfo.token
+            return session
         }
     },
     session:{strategy:'jwt'},
