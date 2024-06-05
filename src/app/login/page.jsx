@@ -11,10 +11,12 @@ const Login = () => {
 
     const handleSubmit = (e)=>{
         e.preventDefault()
+
         signIn('credentials',{
             ...data,
             redirect:false
         })
+        
         router.push('/dashboard')
     }
 
