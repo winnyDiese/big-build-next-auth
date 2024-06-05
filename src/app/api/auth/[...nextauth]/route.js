@@ -19,9 +19,11 @@ export const authOptions = {
 
                 // check to see if user exist
                 const user = await User.find({email:credentials.email})
-                if(!user) return null
+                if(!user) return null 
 
                 // check to see if password match
+                const passWordMatch = await User.find({password:credentials.password})
+                if(!passWordMatch) return null 
 
                 // return user if user object is valid
                 return user
